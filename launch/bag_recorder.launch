@@ -1,0 +1,5 @@
+<launch>
+
+ <node name="record" pkg="rosbag" type="record" args="record -o zeunrectified /zed/left/camera_info /zed/left/image_rect /zed/right/camera_info /zed/right/image_rect" />
+
+</launch>

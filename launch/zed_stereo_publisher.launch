@@ -1,0 +1,27 @@
+<launch>
+  
+  <!-- Video filename arguments cannot have default values -->
+  <arg name="left_video_filename"/>
+  <arg name="right_video_filename"/>
+  <arg name="calibration_filename"/>
+
+  <!-- Camera info (calibration) topic names -->
+  <arg name="left_info_topic_name" default="/zed/left/camera_info"/>
+  <arg name="right_info_topic_name" default="/zed/right/camera_info"/>
+  
+  <!-- Image topic names -->
+  <arg name="left_image_topic_name" default="/zed/left/image_rect"/>
+  <arg name="right_image_topic_name" default="/zed/right/image_rect"/>
+
+  <node name="zed_stereo_publisher" pkg="slam_image_publisher" type="zed_stereo_publisher">
+        <param name="left_video_filename" value="$(arg left_video_filename)"/>
+	<param name="right_video_filename" value="$(arg right_video_filename)"/>
+        <param name="calibration_filename" value="$(arg calibration_filename)"/>
+		
+	<param name="left_info_topic_name" value="$(arg left_info_topic_name)"/>
+        <param name="right_info_topic_name" value="$(arg right_info_topic_name)"/>
+        <param name="left_image_topic_name" value="$(arg left_image_topic_name)"/>
+        <param name="right_image_topic_name" value="$(arg right_image_topic_name)"/>
+  </node>
+
+</launch>
